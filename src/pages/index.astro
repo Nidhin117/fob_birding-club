@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WalkCard from '../components/WalkCard.astro';
 import { getPastWalks, getUpcomingWalks } from '../services/walks';
+import { Image } from 'astro:assets';
+import heroImage from '../assets/collage-1.jpeg';
 
 const pastWalks = await getPastWalks();
 const upcomingWalks = await getUpcomingWalks();
@@ -12,12 +14,17 @@ import { INSTAGRAM_URL } from '../config';
 <BaseLayout title="Home">
   <!-- Hero Section -->
   <section class="hero">
-    <div class="container hero-content">
-      <h1>Friends of Baanaadi</h1>
-      <p class="hero-subtitle">A community of bird watching enthusiasts from Bengaluru and surrounding districts.</p>
-      <div class="hero-actions">
-        <a href={`${base}/join`} class="btn">Walk With Us</a>
-        <a href={`${base}/walks`} class="btn btn-outline hero-btn-outline">Our Walks</a>
+    <div class="container hero-split">
+      <div class="hero-content">
+        <h1>Friends of Baanaadi</h1>
+        <p class="hero-subtitle">A community of bird watching enthusiasts from Bengaluru and surrounding districts.</p>
+        <div class="hero-actions">
+          <a href={`${base}/join`} class="btn">Walk With Us</a>
+          <a href={`${base}/walks`} class="btn btn-outline hero-btn-outline">Our Walks</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <Image src={heroImage} alt="Bird watching collage" class="hero-image" />
       </div>
     </div>
   </section>
@@ -50,7 +57,7 @@ import { INSTAGRAM_URL } from '../config';
         </div>
         <div class="stat-card">
           <span class="stat-number">12</span>
-          <span class="stat-label">Walks in 24-25 Season</span>
+          <span class="stat-label">Walks in 2024-25 Season</span>
         </div>
         <div class="stat-card">
           <span class="stat-number">176</span>
@@ -90,8 +97,13 @@ import { INSTAGRAM_URL } from '../config';
   .hero {
     background-color: var(--color-bg);
     padding: var(--space-4xl) 0;
-    text-align: center;
     border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero-split {
+    display: grid;
+    gap: var(--space-2xl);
+    align-items: center;
   }
 
   .hero h1 {
@@ -103,15 +115,20 @@ import { INSTAGRAM_URL } from '../config';
   .hero-subtitle {
     font-size: 1.25rem;
     color: var(--color-text-secondary);
-    max-width: 600px;
-    margin: 0 auto var(--space-xl);
+    margin-bottom: var(--space-xl);
   }
 
   .hero-actions {
     display: flex;
-    justify-content: center;
     gap: var(--space-md);
     flex-wrap: wrap;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
   }
 
   .hero-btn-outline {
@@ -204,6 +221,10 @@ import { INSTAGRAM_URL } from '../config';
   }
 
   @media (min-width: 768px) {
+    .hero-split {
+      grid-template-columns: 1fr 1fr;
+    }
+
     .hero h1 {
       font-size: 4rem;
     }

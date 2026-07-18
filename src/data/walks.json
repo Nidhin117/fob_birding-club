@@ -9,21 +9,19 @@
     "participantCount": 18
   },
   {
-    "id": "hesaraghatta-2026-05",
-    "title": "Hesaraghatta Grasslands Walk",
-    "location": "Hesaraghatta",
-    "date": "2026-05-10",
-    "description": "A wonderful morning exploring the grassland ecosystem.",
-    "speciesCount": 35,
-    "participantCount": 15
+    "id": "jyotipura-2026-05",
+    "title": "Jyotipura Reserve Forest Walk",
+    "location": "Jyotipura Reserve Forest",
+    "date": "2026-05-17",
+    "description": "A nature walk through the Jyotipura Reserve Forest.",
+    "speciesCount": 48
   },
   {
-    "id": "saul-kere-2026-04",
-    "title": "Saul Kere Lake Walk",
-    "location": "Saul Kere",
-    "date": "2026-04-20",
-    "description": "Water bird census walk and morning birding around the lake.",
-    "speciesCount": 42,
-    "participantCount": 20
+    "id": "hesaraghatta-bamboo-2026-04",
+    "title": "Hesarghatta Bamboo Forest Walk",
+    "location": "Hesarghatta Bamboo Forest and ICAR area",
+    "date": "2026-04-19",
+    "description": "Birding around the Hesarghatta Bamboo Forest and ICAR area.",
+    "speciesCount": 54
   }
 ]

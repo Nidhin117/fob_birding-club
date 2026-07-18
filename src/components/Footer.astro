@@ -1,0 +1,95 @@
+---
+---
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <h3>Friends of Baanaadi</h3>
+      <p>A community of bird watching enthusiasts exploring Bengaluru and surrounding districts.</p>
+    </div>
+    
+    <div class="footer-links">
+      <div class="link-group">
+        <h4>Explore</h4>
+        <a href="/about">About Us</a>
+        <a href="/walks">Our Walks</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/stats">Stats</a>
+      </div>
+      <div class="link-group">
+        <h4>Connect</h4>
+        <a href="/join">Join Us</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; {new Date().getFullYear()} Friends of Baanaadi. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-2xl);
+    margin-top: var(--space-4xl);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .footer-brand h3 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-brand p {
+    color: var(--color-text-secondary);
+    max-width: 400px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xl);
+  }
+
+  .link-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .link-group h4 {
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .link-group a {
+    color: var(--color-text-secondary);
+  }
+
+  .link-group a:hover {
+    color: var(--color-accent-primary);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-md) 0;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+</style>

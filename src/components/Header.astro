@@ -1,0 +1,141 @@
+---
+---
+<header class="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="/images/fob_logo.jpg" alt="Friends of Baanaadi Logo" class="logo-img" />
+      <span class="logo-text">Friends of Baanaadi</span>
+    </a>
+    
+    <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" id="menuToggle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <nav class="nav" id="mainNav">
+      <ul class="nav-list">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/walks" class="nav-link">Our Walks</a></li>
+        <li><a href="/gallery" class="nav-link">Gallery</a></li>
+        <li><a href="/stats" class="nav-link">Stats</a></li>
+        <li><a href="/join" class="btn btn-outline nav-btn">Join Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-text-primary);
+  }
+  
+  .logo-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .logo-text {
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
+
+  .menu-toggle {
+    display: block;
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    padding: var(--space-xs);
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav.is-open {
+    display: block;
+  }
+
+  .nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .nav-link {
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    display: block;
+    padding: var(--space-xs) 0;
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent-primary);
+  }
+
+  @media (min-width: 768px) {
+    .menu-toggle {
+      display: none;
+    }
+
+    .nav {
+      display: block;
+      position: static;
+      background: transparent;
+      border: none;
+      padding: 0;
+      box-shadow: none;
+    }
+
+    .nav-list {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('mainNav');
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen.toString());
+    });
+  }
+</script>

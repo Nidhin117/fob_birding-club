@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About Us">
+  <section class="section page-header">
+    <div class="container">
+      <h1>About Us</h1>
+      <p class="subtitle">Our story, purpose, and community values.</p>
+    </div>
+  </section>
+
+  <section class="section about-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <h2>Our Story</h2>
+        <p>Friends of Baanaadi is a group of bird watching enthusiasts from different professional backgrounds, brought together by our shared love for nature and birding.</p>
+        <p>We started our regular bird walks in December 2024 and have been actively exploring the diverse habitats in and around Bengaluru since then.</p>
+
+        <h2>Our Purpose & Philosophy</h2>
+        <p>Our core philosophy revolves around promoting outdoor activities and cultivating bird watching and nature walks as a fulfilling hobby. Beyond just observing, we are deeply committed to conservation.</p>
+        <p>We believe in giving back to the community and contributing to science, which is why we actively take part in citizen science initiatives like the Annual Waterbird Census.</p>
+
+        <h2>Our Community Values</h2>
+        <ul>
+          <li><strong>Inclusive to All:</strong> We welcome people of all ages who have a curiosity and appreciation for nature.</li>
+          <li><strong>Experience Over Equipment:</strong> This is not a photographers-only club. While photographers are welcome, our primary focus is on the walk, the birds, and nature itself. We try to get record shots, but we don't spend hours waiting for the perfect photograph.</li>
+          <li><strong>Consistent Engagement:</strong> We organize weekend nature and bird walks every month, ensuring our community stays active. Twice a year, we also conduct a longer nature stay and workshop.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--color-accent-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .content-wrapper {
+    max-width: 800px;
+  }
+
+  .content-wrapper h2 {
+    margin-top: var(--space-xl);
+    color: var(--color-text-primary);
+  }
+
+  .content-wrapper h2:first-child {
+    margin-top: 0;
+  }
+
+  .content-wrapper p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+  }
+
+  .content-wrapper ul {
+    list-style-type: disc;
+    padding-left: var(--space-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-wrapper li {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .content-wrapper li strong {
+    color: var(--color-text-primary);
+  }
+</style>

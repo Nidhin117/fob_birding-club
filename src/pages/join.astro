@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Join Us">
+  <section class="section page-header">
+    <div class="container">
+      <h1>Join Us</h1>
+      <p class="subtitle">Become a part of our bird watching community.</p>
+    </div>
+  </section>
+
+  <section class="section join-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <h2>Who Can Participate</h2>
+        <p>Whether you're a veteran birder with years of experience or someone who simply wants to explore birding as a new hobby, you are warmly welcomed.</p>
+        <p>We are a community that appreciates curiosity. You don't need expensive equipment or extensive knowledge to start—just an appreciation for nature.</p>
+
+        <h2>How Walk Announcements Are Made</h2>
+        <p>Our upcoming activities and weekend bird walks are announced primarily on two platforms:</p>
+        <ul>
+          <li><strong>Instagram:</strong> We post updates and walk announcements on our official Instagram page.</li>
+          <li><strong>WhatsApp Group:</strong> We maintain an invite-based WhatsApp community for our active members to coordinate walks and share sightings.</li>
+        </ul>
+
+        <h2>What to Expect on a Walk</h2>
+        <p>Our focus is on the walk itself, the birds we see, and appreciating nature. While photographers are a welcome part of our community, we don't spend hours waiting in one spot for the perfect shot. We prefer to keep moving, get record shots if possible, and enjoy the overall experience.</p>
+        
+        <div class="action-box">
+          <h3>Ready to join us?</h3>
+          <p>Follow us on Instagram to stay updated on our next nature walk.</p>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn">Follow Friends of Baanaadi on Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--color-accent-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .content-wrapper {
+    max-width: 800px;
+  }
+
+  .content-wrapper h2 {
+    margin-top: var(--space-xl);
+    color: var(--color-text-primary);
+  }
+
+  .content-wrapper h2:first-child {
+    margin-top: 0;
+  }
+
+  .content-wrapper p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+  }
+
+  .content-wrapper ul {
+    list-style-type: disc;
+    padding-left: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .content-wrapper li {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .content-wrapper li strong {
+    color: var(--color-text-primary);
+  }
+
+  .action-box {
+    margin-top: var(--space-2xl);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    text-align: center;
+  }
+
+  .action-box h3 {
+    margin-bottom: var(--space-sm);
+    color: var(--color-accent-primary);
+  }
+  
+  .action-box p {
+    margin-bottom: var(--space-lg);
+  }
+</style>

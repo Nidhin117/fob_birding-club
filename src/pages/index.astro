@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WalkCard from '../components/WalkCard.astro';
+import { getPastWalks, getUpcomingWalks } from '../services/walks';
+
+const pastWalks = await getPastWalks();
+const upcomingWalks = await getUpcomingWalks();
+---
+
+<BaseLayout title="Home">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Friends of Baanaadi</h1>
+      <p class="hero-subtitle">A community of bird watching enthusiasts from Bengaluru and surrounding districts.</p>
+      <div class="hero-actions">
+        <a href="/join" class="btn">Walk With Us</a>
+        <a href="/walks" class="btn btn-outline hero-btn-outline">Our Walks</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Are / What We Do -->
+  <section class="section about-section">
+    <div class="container">
+      <div class="split-layout">
+        <div>
+          <h2>Who We Are</h2>
+          <p>We are a group of bird watching enthusiasts from different professional backgrounds. Our core philosophy is to promote outdoor activities, bird watching, nature walks as a hobby, and conservation.</p>
+          <p>We welcome people of all ages with curiosity and appreciation for nature. This is not a photographers-only club, though photographers are welcome!</p>
+        </div>
+        <div>
+          <h2>What We Do</h2>
+          <p>We have been conducting regular bird walks since December 2024. We do weekend nature/bird walks every month and twice a year we host a longer nature stay and workshop.</p>
+          <p>We also actively take part in citizen science initiatives like the Annual Waterbird Census. On our walks, we focus on the experience, the birds, and nature itself rather than spending hours waiting for the perfect shot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Statistics -->
+  <section class="section stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">2024</span>
+          <span class="stat-label">Year Founded</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">12</span>
+          <span class="stat-label">Walks in 24-25 Season</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">176</span>
+          <span class="stat-label">Species Spotted</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Walks -->
+  <section class="section walks-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Recent Walks</h2>
+        <a href="/walks" class="view-all">View all walks &rarr;</a>
+      </div>
+      
+      <div class="walks-grid">
+        {pastWalks.slice(0, 2).map((walk) => (
+          <WalkCard walk={walk} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Community CTA -->
+  <section class="section cta-section">
+    <div class="container cta-content">
+      <h2>Join the Community</h2>
+      <p>Whether you're a veteran birder or someone wanting to explore birding as a hobby, you are welcome. Walk announcements are made on our Instagram page and our invite-based WhatsApp community.</p>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn">Follow on Instagram</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background-color: var(--color-bg);
+    padding: var(--space-4xl) 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-primary);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--space-xl);
+  }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .hero-btn-outline {
+    background-color: var(--color-surface);
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .split-layout {
+    display: grid;
+    gap: var(--space-2xl);
+  }
+
+  .stats-section {
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .stat-card {
+    padding: var(--space-lg);
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-accent-terracotta);
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+  }
+
+  .stat-label {
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-header h2 {
+    margin-bottom: 0;
+  }
+
+  .view-all {
+    font-weight: 500;
+  }
+
+  .walks-grid {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .cta-section {
+    background-color: var(--color-accent-primary);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-section h2, .cta-section p {
+    color: white;
+  }
+
+  .cta-section p {
+    max-width: 600px;
+    margin: 0 auto var(--space-xl);
+    opacity: 0.9;
+  }
+
+  .cta-section .btn {
+    background-color: white;
+    color: var(--color-accent-primary);
+  }
+
+  .cta-section .btn:hover {
+    background-color: var(--color-bg);
+  }
+
+  @media (min-width: 768px) {
+    .hero h1 {
+      font-size: 4rem;
+    }
+
+    .split-layout {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .walks-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

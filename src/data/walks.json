@@ -1,0 +1,29 @@
+[
+  {
+    "id": "turahalli-2026-06",
+    "title": "Turahalli Tree Park Bird Walk",
+    "location": "Turahalli Tree Park",
+    "date": "2026-06-14",
+    "description": "Our most recent nature walk. Highlights included spotting the Puff-throated Babbler and Blue-faced Malkoha.",
+    "speciesCount": 52,
+    "participantCount": 18
+  },
+  {
+    "id": "hesaraghatta-2026-05",
+    "title": "Hesaraghatta Grasslands Walk",
+    "location": "Hesaraghatta",
+    "date": "2026-05-10",
+    "description": "A wonderful morning exploring the grassland ecosystem.",
+    "speciesCount": 35,
+    "participantCount": 15
+  },
+  {
+    "id": "saul-kere-2026-04",
+    "title": "Saul Kere Lake Walk",
+    "location": "Saul Kere",
+    "date": "2026-04-20",
+    "description": "Water bird census walk and morning birding around the lake.",
+    "speciesCount": 42,
+    "participantCount": 20
+  }
+]

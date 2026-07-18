@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WalkCard from '../components/WalkCard.astro';
+import { getUpcomingWalks, getPastWalks } from '../services/walks';
+
+const upcomingWalks = await getUpcomingWalks();
+const pastWalks = await getPastWalks();
+---
+
+<BaseLayout title="Our Walks">
+  <section class="section page-header">
+    <div class="container">
+      <h1>Our Walks</h1>
+      <p class="subtitle">Join us for upcoming trails or explore our past adventures.</p>
+    </div>
+  </section>
+
+  <section class="section walks-section">
+    <div class="container">
+      
+      <!-- Upcoming Walks -->
+      <div class="walks-group">
+        <h2>Upcoming Walks</h2>
+        {upcomingWalks.length > 0 ? (
+          <div class="walks-grid">
+            {upcomingWalks.map(walk => (
+              <WalkCard walk={walk} />
+            ))}
+          </div>
+        ) : (
+          <div class="empty-state">
+            <p>More walks coming soon. Follow us on our social channels to hear about upcoming bird walks and activities.</p>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn">Follow on Instagram</a>
+          </div>
+        )}
+      </div>
+
+      <!-- Past Walks -->
+      <div class="walks-group">
+        <h2>Past Walks</h2>
+        {pastWalks.length > 0 ? (
+          <div class="walks-grid">
+            {pastWalks.map(walk => (
+              <WalkCard walk={walk} />
+            ))}
+          </div>
+        ) : (
+          <p class="text-secondary">No past walks recorded yet.</p>
+        )}
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--color-accent-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .walks-group {
+    margin-bottom: var(--space-4xl);
+  }
+
+  .walks-group h2 {
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-xs);
+    border-bottom: 2px solid var(--color-border);
+    display: inline-block;
+  }
+
+  .walks-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: 1fr;
+  }
+
+  .empty-state {
+    background-color: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    text-align: center;
+  }
+
+  .empty-state p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--space-lg);
+  }
+
+  .text-secondary {
+    color: var(--color-text-secondary);
+  }
+
+  @media (min-width: 768px) {
+    .walks-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .walks-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

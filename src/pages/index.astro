@@ -6,6 +6,7 @@ import { getPastWalks, getUpcomingWalks } from '../services/walks';
 const pastWalks = await getPastWalks();
 const upcomingWalks = await getUpcomingWalks();
 const base = import.meta.env.BASE_URL;
+import { INSTAGRAM_URL } from '../config';
 ---
 
 <BaseLayout title="Home">
@@ -80,7 +81,7 @@ const base = import.meta.env.BASE_URL;
     <div class="container cta-content">
       <h2>Join the Community</h2>
       <p>Whether you're a veteran birder or someone wanting to explore birding as a hobby, you are welcome. Walk announcements are made on our Instagram page and our invite-based WhatsApp community.</p>
-      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn">Follow on Instagram</a>
+      <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="btn">Follow on Instagram</a>
     </div>
   </section>
 </BaseLayout>

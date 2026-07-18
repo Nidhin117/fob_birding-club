@@ -5,6 +5,7 @@ import { getUpcomingWalks, getPastWalks } from '../services/walks';
 
 const upcomingWalks = await getUpcomingWalks();
 const pastWalks = await getPastWalks();
+import { INSTAGRAM_URL } from '../config';
 ---
 
 <BaseLayout title="Our Walks">
@@ -30,7 +31,7 @@ const pastWalks = await getPastWalks();
         ) : (
           <div class="empty-state">
             <p>More walks coming soon. Follow us on our social channels to hear about upcoming bird walks and activities.</p>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn">Follow on Instagram</a>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="btn">Follow on Instagram</a>
           </div>
         )}
       </div>

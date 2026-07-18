@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { INSTAGRAM_URL } from '../config';
 ---
 
 <BaseLayout title="Gallery">
@@ -14,7 +15,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <div class="empty-state">
         <p>Our photo gallery is being curated and will be updated soon. In the meantime, check out our recent sightings on Instagram!</p>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn">View Photos on Instagram</a>
+        <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="btn">View Photos on Instagram</a>
       </div>
     </div>
   </section>

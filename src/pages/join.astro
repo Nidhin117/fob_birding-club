@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { INSTAGRAM_URL } from '../config';
 ---
 
 <BaseLayout title="Join Us">
@@ -30,7 +31,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="action-box">
           <h3>Ready to join us?</h3>
           <p>Follow us on Instagram to stay updated on our next nature walk.</p>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn">Follow Friends of Baanaadi on Instagram</a>
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="btn">Follow Friends of Baanaadi on Instagram</a>
         </div>
       </div>
     </div>

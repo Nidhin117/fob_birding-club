@@ -15,21 +15,34 @@ import { INSTAGRAM_URL } from '../config';
     <div class="container">
       <div class="content-wrapper">
         <h2>Who Can Participate</h2>
-        <p>Whether you're a veteran birder with years of experience or someone who simply wants to explore birding as a new hobby, you are warmly welcomed.</p>
-        <p>We are a community that appreciates curiosity. You don't need expensive equipment or extensive knowledge to start—just an appreciation for nature.</p>
+        <p>We warmly welcome anyone with a love for nature, from veteran birders eager to share their knowledge to absolute beginners taking their very first steps into bird watching. You do not need expensive equipment (such as high-end cameras or spotting scopes) or prior expertise to start—just a sense of wonder and curiosity.</p>
+        
+        <div class="sub-section">
+          <h3>Educational Workshops for Children</h3>
+          <p>In addition to our public community walks, we design and conduct introductory birding workshops specifically tailored for children from educational institutions (schools, colleges, and youth groups). These full-day, immersive programs feature guided birdwalks, interactive workshops, and fun, observation-based nature activities to inspire the next generation of environmental stewards.</p>
+        </div>
 
-        <h2>How Walk Announcements Are Made</h2>
-        <p>Our upcoming activities and weekend bird walks are announced primarily on two platforms:</p>
+        <h2>Our Walk Schedule</h2>
+        <p>To help you plan your schedule ahead of time, <strong>we commit to hosting a community walk on the second weekend of every month.</strong></p>
+        <p>While we frequently organize additional impromptu walks and seasonal explorations throughout the month, you can always count on the second weekend of the month being blocked for a Friends of Baanaadi walk. We announce specific locations, timings, and meeting points in the days leading up to each walk.</p>
+
+        <h2>How to Stay Updated</h2>
+        <p>All upcoming walks, workshops, and community events are announced through our official channels:</p>
         <ul>
-          <li><strong>Instagram:</strong> We post updates and walk announcements on our official Instagram page.</li>
-          <li><strong>WhatsApp Group:</strong> We maintain an invite-based WhatsApp community for our active members to coordinate walks and share sightings.</li>
+          <li><strong>Instagram:</strong> Follow our official Instagram page for upcoming walk flyers, highlight photos, and community updates.</li>
+          <li><strong>WhatsApp Community:</strong> We maintain an invite-based WhatsApp group for our active members to coordinate carpools, share species checklists, and discuss sightings. You can request an invite after attending one of our walks.</li>
         </ul>
 
         <h2>What to Expect on a Walk</h2>
-        <p>Our focus is on the walk itself, the birds we see, and appreciating nature. While photographers are a welcome part of our community, we don't spend hours waiting in one spot for the perfect shot. We prefer to keep moving, get record shots if possible, and enjoy the overall experience.</p>
+        <p>Our walks are slow-paced, mindful explorations focused on observing birds, listening to their calls, and appreciating their natural habitats. Here is what you should expect:</p>
+        <ul>
+          <li><strong>A Focus on Observation:</strong> We prioritize studying bird behavior and understanding local ecosystems.</li>
+          <li><strong>Movement Over Stillness:</strong> Unlike dedicated photography outings, we keep moving to explore different niches rather than waiting in one spot for hours. While photographers are welcome, we aim to capture quick record shots rather than perfect artistic compositions.</li>
+          <li><strong>Shared Learning:</strong> Experienced members are always happy to help beginners learn identification techniques and navigate field guides or apps like eBird and Merlin.</li>
+        </ul>
         
         <div class="action-box">
-          <h3>Ready to join us?</h3>
+          <h3>Ready to walk with us?</h3>
           <p>Follow us on Instagram to stay updated on our next nature walk.</p>
           <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="btn">Follow Friends of Baanaadi on Instagram</a>
         </div>
@@ -112,5 +125,26 @@ import { INSTAGRAM_URL } from '../config';
   
   .action-box p {
     margin-bottom: var(--space-lg);
+  }
+
+  .sub-section {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    background-color: var(--color-surface);
+    border-left: 4px solid var(--color-accent-primary);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .sub-section h3 {
+    margin-top: 0;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-primary);
+    font-size: 1.25rem;
+  }
+
+  .sub-section p {
+    margin-bottom: 0;
+    font-size: 1.0625rem;
   }
 </style>

@@ -1,6 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import { INSTAGRAM_URL } from '../config';
+
+// Custom titles for specific gallery images
+const CUSTOM_TITLES: Record<string, string> = {
+  'bird_collage.jpeg': 'Pictures taken during our walks',
+  'team_collage.jpeg': 'Meet our active members'
+};
+
+// Dynamically import all images in the src/assets/gallery/ folder
+const imageFiles = import.meta.glob<{ default: ImageMetadata }>('../assets/gallery/*.{jpeg,jpg,png,gif,webp}');
+const images = await Promise.all(
+  Object.entries(imageFiles).map(async ([path, resolver]) => {
+    const resolved = await resolver();
+    const filename = path.split('/').pop() || '';
+    
+    // Format title from filename if not defined in CUSTOM_TITLES
+    const title = CUSTOM_TITLES[filename] || filename
+      .replace(/\.[^/.]+$/, "")
+      .replace(/[_-]/g, " ")
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+    
+    return {
+      src: resolved.default,
+      title,
+    };
+  })
+);
 ---
 
 <BaseLayout title="Gallery">
@@ -13,10 +40,32 @@ import { INSTAGRAM_URL } from '../config';
 
   <section class="section gallery-content">
     <div class="container">
-      <div class="empty-state">
-        <p>Our photo gallery is being curated and will be updated soon. In the meantime, check out our recent sightings on Instagram!</p>
-        <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="btn">View Photos on Instagram</a>
-      </div>
+      {images.length > 0 ? (
+        <>
+          <div class="gallery-grid">
+            {images.map((img) => (
+              <div class="gallery-card">
+                <div class="image-wrapper">
+                  <Image src={img.src} alt={img.title} class="gallery-image" />
+                </div>
+                <div class="card-overlay">
+                  <h3 class="card-title">{img.title}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div class="instagram-banner">
+            <p>For more photos, live updates, and recent sightings, follow us on Instagram!</p>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-outline">View More on Instagram</a>
+          </div>
+        </>
+      ) : (
+        <div class="empty-state">
+          <p>Our photo gallery is being curated and will be updated soon. In the meantime, check out our recent sightings on Instagram!</p>
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="btn">View Photos on Instagram</a>
+        </div>
+      )}
     </div>
   </section>
 </BaseLayout>
@@ -45,6 +94,58 @@ import { INSTAGRAM_URL } from '../config';
     padding: var(--space-3xl) 0;
   }
 
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+    gap: var(--space-xl);
+    justify-content: center;
+  }
+
+  .gallery-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .image-wrapper {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--color-border);
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .gallery-card:hover .gallery-image {
+    transform: scale(1.04);
+  }
+
+  .card-overlay {
+    padding: var(--space-md);
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .card-title {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
   .empty-state {
     background-color: var(--color-surface);
     border: 1px dashed var(--color-border);
@@ -59,5 +160,24 @@ import { INSTAGRAM_URL } from '../config';
     font-size: 1.125rem;
     color: var(--color-text-secondary);
     margin-bottom: var(--space-xl);
+  }
+
+  .instagram-banner {
+    margin-top: var(--space-4xl);
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .instagram-banner p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+    margin-top: 0;
   }
 </style>

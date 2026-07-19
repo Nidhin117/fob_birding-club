@@ -7,7 +7,6 @@ import heroImage from '../assets/collage-1.jpeg';
 
 const pastWalks = await getPastWalks();
 const upcomingWalks = await getUpcomingWalks();
-const base = import.meta.env.BASE_URL;
 import { INSTAGRAM_URL } from '../config';
 ---
 
@@ -19,8 +18,8 @@ import { INSTAGRAM_URL } from '../config';
         <h1>Friends of Baanaadi</h1>
         <p class="hero-subtitle">A community of bird watching enthusiasts from Bengaluru and surrounding districts.</p>
         <div class="hero-actions">
-          <a href={`${base}/join`} class="btn">Walk With Us</a>
-          <a href={`${base}/walks`} class="btn btn-outline hero-btn-outline">Our Walks</a>
+          <a href="/join" class="btn">Walk With Us</a>
+          <a href="/walks" class="btn btn-outline hero-btn-outline">Our Walks</a>
         </div>
       </div>
       <div class="hero-image-wrapper">
@@ -76,7 +75,7 @@ import { INSTAGRAM_URL } from '../config';
     <div class="container">
       <div class="section-header">
         <h2>Recent Walks</h2>
-        <a href={`${base}/walks`} class="view-all">View all walks &rarr;</a>
+        <a href="/walks" class="view-all">View all walks &rarr;</a>
       </div>
       
       <div class="walks-grid">
